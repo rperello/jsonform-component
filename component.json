@@ -12,10 +12,10 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": [
-    "index.js"
+    "index.js",
+    "jsv.js"
   ],
   "files": [
-    "jsv.js",
     "glyphicons-halflings.png"
   ]
 }

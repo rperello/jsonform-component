@@ -24,10 +24,14 @@
 
  /*global window*/
 
-(function(serverside, global, $, _, JSON) {
-  if (serverside) {
-    _ = require('underscore');
-  }
+// (function(serverside, global, $, _, JSON) {
+//   if (serverside) {
+//     _ = require('underscore');
+//   }
+
+  var _ = require('underscore'),
+    global = {},
+    $ = require('jquery');
 
   /**
    * Regular expressions used to extract array indexes in input field names
@@ -412,7 +416,7 @@ jsonform.elementTypes = {
           $(node.el).find(idSelector).change();
         }, 600);
         editor.getSession().on('change', lazyChanged);
-        
+
         editor.on('blur', function() {
           $(node.el).find(idSelector).change();
           $(node.el).find(idSelector).trigger("blur");
@@ -471,7 +475,7 @@ jsonform.elementTypes = {
       } else {
         node.ownerTree._transloadit_generic_public_index++;
       }
-      
+
       data.transloaditname = "_transloadit_jsonform_genericupload_public_"+node.ownerTree._transloadit_generic_public_index;
 
       if (!node.ownerTree._transloadit_generic_elts) node.ownerTree._transloadit_generic_elts = {};
@@ -1831,7 +1835,7 @@ formNode.prototype.hasNonDefaultValue = function () {
   if (this.formElement && this.formElement.type=="hidden") {
     return false;
   }
-  
+
   if (this.value && !this.defaultValue) {
     return true;
   }
@@ -3157,7 +3161,7 @@ formTree.prototype.buildFromLayout = function (formElement, context) {
     throw new Error('The JSONForm contains an element whose type is unknown: "' +
       formElement.type + '"');
   }
-  
+
 
   if (schemaElement) {
     // The form element is linked to an element in the schema.
@@ -3282,7 +3286,7 @@ formTree.prototype.render = function (domRoot) {
  * @param {Function} callback The callback to call on each element
  */
 formTree.prototype.forEachElement = function (callback) {
-  
+
   var f = function(root) {
     for (var i=0;i<root.children.length;i++) {
       callback(root.children[i]);
@@ -3584,8 +3588,4 @@ global.JSONForm.getInitialValue = getInitialValue;
 global.JSONForm.util.getObjKey = jsonform.util.getObjKey;
 global.JSONForm.util.setObjKey = jsonform.util.setObjKey;
 
-})((typeof exports !== 'undefined'),
-  ((typeof exports !== 'undefined') ? exports : window),
-  ((typeof jQuery !== 'undefined') ? jQuery : { fn: {} }),
-  ((typeof _ !== 'undefined') ? _ : null),
-  JSON);
+exports.JSONForm = global.JSONForm;
