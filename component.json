@@ -12,7 +12,7 @@
   "license": "MIT",
   "main": "index.js",
   "scripts": [
-    "jsonform.js"
+    "index.js"
   ],
   "files": [
     "jsv.js",
