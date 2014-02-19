@@ -1,0 +1,21 @@
+{
+  "name": "jsonform-component",
+  "repo": "rperello/jsonform-component",
+  "description": "Shim repository for jsonform",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+    "components/jquery": "1.11.0",
+    "components/underscore": "*"
+  },
+  "development": {},
+  "license": "MIT",
+  "main": "index.js",
+  "scripts": [
+    "jsonform.js"
+  ],
+  "files": [
+    "jsv.js",
+    "glyphicons-halflings.png"
+  ]
+}
